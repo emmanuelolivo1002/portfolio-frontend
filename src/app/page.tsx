@@ -1,7 +1,31 @@
+import qs from "qs";
+
+// Components
+import { HeroSection } from "@/components/custom/HeroSection";
+
+const homePageQuery = qs.stringify({
+  populate: {
+    blocks: {
+      populate: {
+        primaryLink: {
+          populate: true,
+        },
+        secondaryLink: {
+          populate: true,
+        },
+      },
+    },
+  },
+});
+
 async function getStrapiData(path: string) {
   const baseUrl = "http://localhost:1337";
+
+  const url = new URL(path, baseUrl);
+  url.search = homePageQuery;
+
   try {
-    const response = await fetch(baseUrl + path);
+    const response = await fetch(url.href);
     const data = await response.json();
     return data;
   } catch (error) {
@@ -12,12 +36,40 @@ async function getStrapiData(path: string) {
 export default async function Home() {
   const strapiData = await getStrapiData("/api/home-page");
 
-  const { title, description } = strapiData.data.attributes;
+  console.dir(strapiData, { depth: null });
+
+  const { title, description, blocks } = strapiData.data.attributes;
 
   return (
-    <main className="container mx-auto py-6">
-      <h1 className="text-5xl font-bold">{title}</h1>
-      <p className="text-xl mt-4">{description}</p>
-    </main>
+    <>
+      <nav>Navigation</nav>
+      <main className="container mx-auto py-6">
+        <HeroSection data={blocks[0]} />
+        <div
+          id="experience"
+          className="my-20 rounded-lg h-svh flex items-center justify-center border-2 border-green-500"
+        >
+          <h2>Experience</h2>
+        </div>
+        <div
+          id="projects"
+          className="my-20 rounded-lg h-svh flex items-center justify-center border-2 border-green-500"
+        >
+          <h2>Projects</h2>
+        </div>
+        <div
+          id="about-me"
+          className="my-20 rounded-lg h-svh flex items-center justify-center border-2 border-green-500"
+        >
+          <h2>About Me</h2>
+        </div>
+        <div
+          id="contact"
+          className="my-20 rounded-lg h-svh flex items-center justify-center border-2 border-green-500"
+        >
+          <h2>Contact</h2>
+        </div>
+      </main>
+    </>
   );
 }
