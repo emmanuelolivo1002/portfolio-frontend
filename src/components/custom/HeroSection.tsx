@@ -2,8 +2,6 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 
 const HeroSection = ({ data }: { readonly data: any }) => {
-  console.dir(data, { depth: null });
-
   const { primaryLink, secondaryLink, heading } = data;
 
   return (

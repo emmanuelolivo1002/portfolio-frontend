@@ -22,7 +22,6 @@ export default async function Home() {
 
   return (
     <>
-      <nav>Navigation</nav>
       <main className="py-6 space-y-32">
         {blocks.map(blockRenderer)}
         <div
