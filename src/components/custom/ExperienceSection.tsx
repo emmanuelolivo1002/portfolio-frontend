@@ -1,8 +1,8 @@
 import React from "react";
-
 import { DateTime } from "luxon";
 
 type Job = {
+  id: number;
   title: string;
   company: string;
   location: string;
@@ -10,27 +10,6 @@ type Job = {
   endDate: string | null;
   description: string;
 };
-
-const jobsDummyData: Job[] = [
-  {
-    title: "Senior Front End Engineer",
-    company: "WealthCharts",
-    location: "Remote",
-    startDate: "2021-01-01",
-    endDate: "2021-12-31",
-    description:
-      "WealthCharts is a financial technology company that provides a suite of financial tools to help investors make informed decisions about their investments.",
-  },
-  {
-    title: "Front End Engineer",
-    company: "Columbia University",
-    location: "New York, NY",
-    startDate: "2018-01-01",
-    endDate: "2020-12-31",
-    description:
-      "Columbia University is an educational institution that offers graduate, professional, and research programs in the fields of and public health.",
-  },
-];
 
 const TimelineCard = ({ job, index }: { job: Job; index: number }) => {
   const { title, company, location, startDate, endDate, description } = job;
@@ -53,7 +32,7 @@ const TimelineCard = ({ job, index }: { job: Job; index: number }) => {
       >
         {/* Dot */}
         <div
-          className={`border-4 border-primary bg-background shrink-0 rounded-full w-4 h-4 block absolute  transform  top-8 left-0 -translate-x-1/2 ${
+          className={`border-4 border-primary bg-background shrink-0 rounded-full w-4 h-4 block absolute transform  top-8 left-0 -translate-x-1/2 ${
             isLeft ? "md:left-auto md:right-1/2 md:translate-x-1/2" : "md:left-1/2 "
           }`}
         ></div>
@@ -65,15 +44,16 @@ const TimelineCard = ({ job, index }: { job: Job; index: number }) => {
           <div className="space-y-5 ">
             <div className="mt-7 ">
               {/* Pill for years */}
-              <span className="text-sm font-semibold text-primary-foreground bg-primary py-1 px-2 rounded-2xl">
-                {startFormatted} {endFormatted ? `- ${endFormatted}` : "Present"}
+              <span className="text-sm lg:text-base font-semibold text-primary-foreground bg-primary py-1 px-2 rounded-2xl">
+                {startFormatted} {endFormatted ? `- ${endFormatted}` : "- Present"}
               </span>
               {/* Title */}
               <h3 className="text-xl md:text-2xl font-semibold mb-1 mt-2">{title}</h3>
               {/* Company */}
-              <p className=" md:text-lg text-muted-foreground mb-4">{company}</p>
-              <p className="mb-1">{description}</p>
-              <p className="text-sm text-muted-foreground ">{location}</p>
+              <p className=" md:text-lg text-muted-foreground mb-4">
+                {company} | {location}
+              </p>
+              <p className="text-justify max-w-prose">{description}</p>
             </div>
           </div>
         </div>
@@ -82,14 +62,14 @@ const TimelineCard = ({ job, index }: { job: Job; index: number }) => {
   );
 };
 
-const ExperienceSection = () => {
+const ExperienceSection = ({ data }: { readonly data: any }) => {
+  const { title, subtitle, job: jobsArray } = data;
+
   return (
-    <section id="experience" className="container mx-auto py-6">
-      <div className="mb-12">
-        <h2 className="text-center text-5xl md:text-6xl text-primary mb-8">Experience</h2>
-        <p className="text-center text-muted-foreground ">
-          These are some of the awesome companies I had the privilege to work with.
-        </p>
+    <section id="experience" className="container mx-auto ">
+      <div className="mb-12 flex flex-col items-center">
+        <h2 className="text-center text-5xl md:text-6xl text-primary mb-8">{title}</h2>
+        <p className="text-center text-muted-foreground max-w-prose">{subtitle}</p>
       </div>
       {/* Timeline */}
       <div className="grid relative">
@@ -97,8 +77,8 @@ const ExperienceSection = () => {
         <div className="absolute top-0 left-0 md:left-1/2 w-[2px] h-full bg-primary transform -translate-x-1/2"></div>
 
         {/* Cards */}
-        {jobsDummyData.map((job, index) => (
-          <TimelineCard key={index} index={index} job={job} />
+        {jobsArray.map((job: Job, i: number) => (
+          <TimelineCard key={job.id} index={i} job={job} />
         ))}
       </div>
     </section>

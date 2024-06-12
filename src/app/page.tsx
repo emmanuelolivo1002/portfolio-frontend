@@ -3,6 +3,7 @@ import qs from "qs";
 // Components
 import HeroSection from "@/components/custom/HeroSection";
 import ExperienceSection from "@/components/custom/ExperienceSection";
+import { flattenAttributes, getStrapiURL } from "@/lib/utils";
 
 const homePageQuery = qs.stringify({
   populate: {
@@ -14,21 +15,25 @@ const homePageQuery = qs.stringify({
         secondaryLink: {
           populate: true,
         },
+        job: {
+          populate: true,
+        },
       },
     },
   },
 });
 
 async function getStrapiData(path: string) {
-  const baseUrl = "http://localhost:1337";
+  const baseUrl = getStrapiURL();
 
   const url = new URL(path, baseUrl);
   url.search = homePageQuery;
 
   try {
-    const response = await fetch(url.href);
+    const response = await fetch(url.href, { cache: "no-store" });
     const data = await response.json();
-    return data;
+    const flattenedData = flattenAttributes(data);
+    return flattenedData;
   } catch (error) {
     console.error(error);
   }
@@ -36,17 +41,26 @@ async function getStrapiData(path: string) {
 
 export default async function Home() {
   const strapiData = await getStrapiData("/api/home-page");
+  const { blocks } = strapiData;
 
-  console.dir(strapiData, { depth: null });
+  function blockRenderer(block: any) {
+    switch (block.__component) {
+      case "layout.hero-section":
+        return <HeroSection key={block.id} data={block} />;
+      case "layout.experience-section":
+        return <ExperienceSection key={block.id} data={block} />;
+      default:
+        return null;
+    }
+  }
 
-  const { title, description, blocks } = strapiData.data.attributes;
+  if (!blocks) return <p>No sections found</p>;
 
   return (
     <>
       <nav>Navigation</nav>
-      <main className="py-6">
-        <HeroSection data={blocks[0]} />
-        <ExperienceSection />
+      <main className="py-6 space-y-32">
+        {blocks.map(blockRenderer)}
         <div
           id="projects"
           className="my-20 rounded-lg h-svh flex items-center justify-center border-2 border-green-500"
