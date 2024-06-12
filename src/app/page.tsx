@@ -1,46 +1,10 @@
-import qs from "qs";
-
 // Components
 import HeroSection from "@/components/custom/HeroSection";
 import ExperienceSection from "@/components/custom/ExperienceSection";
-import { flattenAttributes, getStrapiURL } from "@/lib/utils";
-
-const homePageQuery = qs.stringify({
-  populate: {
-    blocks: {
-      populate: {
-        primaryLink: {
-          populate: true,
-        },
-        secondaryLink: {
-          populate: true,
-        },
-        job: {
-          populate: true,
-        },
-      },
-    },
-  },
-});
-
-async function getStrapiData(path: string) {
-  const baseUrl = getStrapiURL();
-
-  const url = new URL(path, baseUrl);
-  url.search = homePageQuery;
-
-  try {
-    const response = await fetch(url.href, { cache: "no-store" });
-    const data = await response.json();
-    const flattenedData = flattenAttributes(data);
-    return flattenedData;
-  } catch (error) {
-    console.error(error);
-  }
-}
+import { getHomePageData } from "@/data/loaders";
 
 export default async function Home() {
-  const strapiData = await getStrapiData("/api/home-page");
+  const strapiData = await getHomePageData();
   const { blocks } = strapiData;
 
   function blockRenderer(block: any) {
