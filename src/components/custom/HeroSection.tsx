@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { Button } from "../ui/button";
 
-export function HeroSection({ data }: { readonly data: any }) {
+const HeroSection = ({ data }: { readonly data: any }) => {
   console.dir(data, { depth: null });
 
   const { primaryLink, secondaryLink, heading } = data;
 
   return (
-    <header className="relative h-[600px] overflow-hidden">
+    <header className="container mx-auto  relative h-[600px] overflow-hidden">
       <div className="relative z-10 flex flex-col justify-center h-full ">
         <h1 className="text-xl font-bold md:text-5xl lg:text-5xl">{heading}</h1>
         <div className="flex mt-8 gap-8">
@@ -21,4 +21,6 @@ export function HeroSection({ data }: { readonly data: any }) {
       </div>
     </header>
   );
-}
+};
+
+export default HeroSection;

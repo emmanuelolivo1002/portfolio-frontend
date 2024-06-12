@@ -1,7 +1,8 @@
 import qs from "qs";
 
 // Components
-import { HeroSection } from "@/components/custom/HeroSection";
+import HeroSection from "@/components/custom/HeroSection";
+import ExperienceSection from "@/components/custom/ExperienceSection";
 
 const homePageQuery = qs.stringify({
   populate: {
@@ -43,14 +44,9 @@ export default async function Home() {
   return (
     <>
       <nav>Navigation</nav>
-      <main className="container mx-auto py-6">
+      <main className="py-6">
         <HeroSection data={blocks[0]} />
-        <div
-          id="experience"
-          className="my-20 rounded-lg h-svh flex items-center justify-center border-2 border-green-500"
-        >
-          <h2>Experience</h2>
-        </div>
+        <ExperienceSection />
         <div
           id="projects"
           className="my-20 rounded-lg h-svh flex items-center justify-center border-2 border-green-500"
