@@ -14,7 +14,7 @@ interface HeaderProps {
 export async function HeaderNav({ data }: Readonly<HeaderProps>) {
   const { navigationLink } = data;
   return (
-    <nav className="flex items-center justify-between py-2 sticky">
+    <nav className="flex items-center justify-between py-2 sticky hidden">
       <div className="flex items-center justify-center w-full gap-4">
         {navigationLink.map(link => (
           <Link key={link.url} href={link.url}>

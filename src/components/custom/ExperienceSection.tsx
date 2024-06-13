@@ -1,5 +1,6 @@
 import React from "react";
 import { DateTime } from "luxon";
+import BlockRendererClient from "../ui/BlockRendererClient";
 
 type Job = {
   id: number;
@@ -9,10 +10,11 @@ type Job = {
   startDate: string | null;
   endDate: string | null;
   description: string;
+  detailedDescription: any;
 };
 
 const TimelineCard = ({ job, index }: { job: Job; index: number }) => {
-  const { title, company, location, startDate, endDate, description } = job;
+  const { title, company, location, startDate, endDate, description, detailedDescription } = job;
 
   // Format dates
   const startFormatted = startDate ? DateTime.fromISO(startDate).toFormat("yyyy") : "";
@@ -20,6 +22,8 @@ const TimelineCard = ({ job, index }: { job: Job; index: number }) => {
 
   // Check if classes for left or right alignment
   const isLeft = index % 2 === 0;
+
+  console.dir(detailedDescription, { depth: null });
 
   return (
     // {/* Card wrapper full width */}
@@ -32,7 +36,7 @@ const TimelineCard = ({ job, index }: { job: Job; index: number }) => {
       >
         {/* Dot */}
         <div
-          className={`border-4 border-primary bg-background shrink-0 rounded-full w-4 h-4 block absolute transform  top-8 left-0 -translate-x-1/2 ${
+          className={`border-8 border-primary bg-background shrink-0 rounded-full w-6 h-6 block absolute transform  top-7 left-0 -translate-x-1/2 ${
             isLeft ? "md:left-auto md:right-1/2 md:translate-x-1/2" : "md:left-1/2 "
           }`}
         ></div>
@@ -53,7 +57,9 @@ const TimelineCard = ({ job, index }: { job: Job; index: number }) => {
               <p className=" md:text-lg text-muted-foreground mb-4">
                 {company} | {location}
               </p>
-              <p className="text-justify max-w-prose">{description}</p>
+              <article className="text-left md:max-w-prose">
+                <BlockRendererClient content={detailedDescription} />
+              </article>
             </div>
           </div>
         </div>
@@ -67,14 +73,14 @@ const ExperienceSection = ({ data }: { readonly data: any }) => {
 
   return (
     <section id="experience" className="container mx-auto ">
-      <div className="mb-12 flex flex-col items-center">
-        <h2 className="text-center text-5xl md:text-6xl text-primary mb-8">{title}</h2>
-        <p className="text-center text-muted-foreground max-w-prose">{subtitle}</p>
+      <div className="mb-12 flex flex-col items-center md:mb-24">
+        <h2 className="text-center text-5xl md:text-8xl text-primary mb-8">{title}</h2>
+        <p className="text-center md:text-xl text-muted-foreground max-w-prose">{subtitle}</p>
       </div>
       {/* Timeline */}
       <div className="grid relative">
         {/* Absolutely positioned vertical line */}
-        <div className="absolute top-0 left-0 md:left-1/2 w-[2px] h-full bg-primary transform -translate-x-1/2"></div>
+        <div className="absolute top-0 left-0 md:left-1/2 w-[4px] h-full bg-primary transform -translate-x-1/2"></div>
 
         {/* Cards */}
         {jobsArray.map((job: Job, i: number) => (
