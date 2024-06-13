@@ -6,11 +6,13 @@ const HeroSection = ({ data }: { readonly data: any }) => {
 
   return (
     // Wrapper
-    <div className="bg-green-950 rounded-b-3xl">
-      <header className="container mx-auto relative h-[600px] overflow-hidden ">
-        <div className="relative z-10 flex flex-col justify-center h-full ">
-          <h1 className="text-xl font-bold md:text-5xl lg:text-5xl">{heading}</h1>
-          <div className="flex mt-8 gap-8">
+    <div className="rounded-b-3xl bg-green-950">
+      <header className="container relative mx-auto h-[600px] overflow-hidden">
+        <div className="relative z-10 flex h-full flex-col justify-center">
+          <h1 className="text-xl font-bold md:text-5xl lg:text-5xl">
+            {heading}
+          </h1>
+          <div className="mt-8 flex gap-8">
             <Button size="xl" asChild>
               <Link href={primaryLink.url}>{primaryLink.label}</Link>
             </Button>

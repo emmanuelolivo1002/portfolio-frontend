@@ -22,23 +22,23 @@ export default async function Home() {
 
   return (
     <>
-      <main className="py-6 space-y-32">
+      <main className="space-y-32 pb-6">
         {blocks.map(blockRenderer)}
         <div
           id="projects"
-          className="my-20 rounded-lg h-svh flex items-center justify-center border-2 border-green-500"
+          className="my-20 flex h-svh items-center justify-center rounded-lg border-2 border-green-500"
         >
           <h2>Projects</h2>
         </div>
         <div
           id="about-me"
-          className="my-20 rounded-lg h-svh flex items-center justify-center border-2 border-green-500"
+          className="my-20 flex h-svh items-center justify-center rounded-lg border-2 border-green-500"
         >
           <h2>About Me</h2>
         </div>
         <div
           id="contact"
-          className="my-20 rounded-lg h-svh flex items-center justify-center border-2 border-green-500"
+          className="my-20 flex h-svh items-center justify-center rounded-lg border-2 border-green-500"
         >
           <h2>Contact</h2>
         </div>

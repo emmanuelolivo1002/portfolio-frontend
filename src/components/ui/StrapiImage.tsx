@@ -9,7 +9,13 @@ interface StrapiImageProps {
   className?: string;
 }
 
-export function StrapiImage({ src, alt, height, width, className }: Readonly<StrapiImageProps>) {
+export function StrapiImage({
+  src,
+  alt,
+  height,
+  width,
+  className,
+}: Readonly<StrapiImageProps>) {
   if (!src) return null;
   const imageUrl = getStrapiMedia(src);
   const imageFallback = `https://placehold.co/${width}x${height}`;

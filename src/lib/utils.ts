@@ -29,7 +29,7 @@ export function flattenAttributes(data: any): any {
 
   // If data is an array, apply flattenAttributes to each element and return as array
   if (Array.isArray(data)) {
-    return data.map(item => flattenAttributes(item));
+    return data.map((item) => flattenAttributes(item));
   }
 
   // Initialize an object with an index signature for the flattened structure
