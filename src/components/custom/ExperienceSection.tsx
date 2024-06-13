@@ -56,7 +56,7 @@ const TimelineCard = ({ job, index }: { job: Job; index: number }) => {
         ></div>
         <div
           className={`w-full pl-7 lg:w-1/2 ${
-            isLeft ? "lg:pl-0 lg:pl-8 lg:pr-8" : "lg:pl-8 lg:pr-8"
+            isLeft ? "lg:pl-8 lg:pr-8" : "lg:pl-8 lg:pr-8"
           }`}
         >
           <div className="space-y-5">

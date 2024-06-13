@@ -1,8 +1,43 @@
+// Utils
+import { getStrapiURL } from "@/lib/utils";
+
+// Components
 import Link from "next/link";
 import { Button } from "../ui/button";
 
-const HeroSection = ({ data }: { readonly data: any }) => {
+// Types
+import { LinkType } from "@/types/linkTypes";
+
+const HeroSection = ({
+  data,
+}: {
+  readonly data: {
+    primaryLink: LinkType;
+    secondaryLink: LinkType;
+    heading: string;
+  };
+}) => {
   const { primaryLink, secondaryLink, heading } = data;
+
+  const renderLink = (link: LinkType) => {
+    const { type, url, label } = link;
+    if (type === "file") {
+      return (
+        <a href={getStrapiURL() + url} target="_blank">
+          {label}
+        </a>
+      );
+    }
+    if (type === "external") {
+      return (
+        <a href={url} target="_blank">
+          {label}
+        </a>
+      );
+    }
+
+    return <Link href={url}>{label}</Link>;
+  };
 
   return (
     // Wrapper
@@ -14,10 +49,10 @@ const HeroSection = ({ data }: { readonly data: any }) => {
           </h1>
           <div className="mt-8 flex flex-col gap-8 md:flex-row">
             <Button size="xl" asChild>
-              <Link href={primaryLink.url}>{primaryLink.label}</Link>
+              {renderLink(primaryLink)}
             </Button>
             <Button size="xl" asChild variant="outline">
-              <Link href={secondaryLink.url}>{secondaryLink.label}</Link>
+              {renderLink(secondaryLink)}
             </Button>
           </div>
         </div>

@@ -1,4 +1,5 @@
 "use client";
+import { useState, useEffect } from "react";
 
 // Components
 import Link from "next/link";
@@ -9,17 +10,14 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 
+// Types
+import { LinkType } from "@/types/linkTypes";
+
 interface HeaderProps {
   data: {
-    navigationLink: {
-      id: number;
-      label: string;
-      url: string;
-    }[];
+    navigationLink: LinkType[];
   };
 }
-
-import { useState, useEffect } from "react";
 
 const useHash = () => {
   const [hash, setHash] = useState(() => window.location.hash);
