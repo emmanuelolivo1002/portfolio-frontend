@@ -31,7 +31,7 @@ export default async function Home() {
           <h2>Projects</h2>
         </div>
         <div
-          id="about-me"
+          id="about"
           className="my-20 flex h-svh items-center justify-center rounded-lg border-2 border-green-500"
         >
           <h2>About Me</h2>
