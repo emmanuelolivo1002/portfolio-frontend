@@ -70,7 +70,7 @@ export function HeaderNav({ data }: Readonly<HeaderProps>) {
 
   return (
     <div className="fixed left-0 right-0 top-0 z-50 hidden justify-center p-2 md:flex">
-      <NavigationMenu className="rounded-2xl border-2 border-primary bg-background px-6">
+      <NavigationMenu className="rounded-2xl border-2 border-primary/40 bg-background/95 px-6 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <NavigationMenuList className="flex space-x-4">
           {navigationLink.map((link, index) => {
             const isActive = currentHash === link.url;

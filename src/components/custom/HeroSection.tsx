@@ -4,6 +4,7 @@ import { getStrapiURL } from "@/lib/utils";
 // Components
 import Link from "next/link";
 import { Button } from "../ui/button";
+import BackgroundSVG from "@/assets/svg/bg-2.svg";
 
 // Types
 import { LinkType } from "@/types/linkTypes";
@@ -41,9 +42,12 @@ const HeroSection = ({
 
   return (
     // Wrapper
-    <div className="rounded-b-3xl bg-green-950">
-      <header className="container relative mx-auto h-96 overflow-hidden md:h-screen md:max-h-[750px]">
-        <div className="relative z-10 flex h-full flex-col justify-center">
+    <div className="relative overflow-hidden rounded-b-3xl border-b border-primary/40">
+      <header className="container mx-auto h-96 md:h-screen md:max-h-[750px]">
+        <div className="absolute bottom-0 right-0 -z-10 flex w-full justify-center lg:left-0 lg:w-full">
+          <BackgroundSVG className="w-full" />
+        </div>
+        <div className="flex h-full flex-col justify-center">
           <h1 className="text-xl font-bold md:text-5xl lg:text-5xl">
             {heading}
           </h1>
