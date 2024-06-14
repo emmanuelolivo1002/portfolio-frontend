@@ -17,23 +17,35 @@ export async function fetchData(url: string) {
 export async function getHomePageData() {
   const url = new URL("/api/home-page", baseUrl);
 
-  const homePageQuery = qs.stringify({
-    populate: {
-      blocks: {
-        populate: {
-          primaryLink: {
-            populate: true,
-          },
-          secondaryLink: {
-            populate: true,
-          },
-          job: {
-            populate: true,
+  const homePageQuery = qs.stringify(
+    {
+      populate: {
+        blocks: {
+          populate: {
+            primaryLink: true,
+            secondaryLink: true,
+            job: true,
+            project: {
+              populate: {
+                thumbnail: {
+                  fields: ["id", "name", "formats"],
+                },
+                technologies: {
+                  fields: ["iconKey", "label"],
+                },
+                project_categories: {
+                  fields: ["id", "label"],
+                },
+              },
+            },
           },
         },
       },
     },
-  });
+    {
+      encodeValuesOnly: true, // This option is recommended to encode only the values
+    },
+  );
 
   url.search = homePageQuery;
 

@@ -47,6 +47,9 @@ export function flattenAttributes(data: any): any {
       !Array.isArray(data[key])
     ) {
       Object.assign(flattened, flattenAttributes(data[key]));
+    } else if (key === "formats") {
+      // Ensure 'formats' is retained correctly
+      flattened[key] = data[key];
     } else {
       // For other keys, copy the value, applying flattenAttributes if it's an object
       flattened[key] = flattenAttributes(data[key]);
