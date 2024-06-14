@@ -4,7 +4,8 @@ import type { Metadata } from "next";
 import { getGlobalData, getGlobalPageMetadata } from "@/data/loaders";
 
 // Components
-import { HeaderNav } from "@/components/custom/HeaderNav";
+import HeaderNav from "@/components/custom/HeaderNav";
+import Footer from "@/components/custom/Footer";
 
 // Styles
 import "./globals.css";
@@ -33,6 +34,7 @@ export default async function RootLayout({
       <body className={lexendDeca.className}>
         <HeaderNav data={globalData.header} />
         {children}
+        <Footer />
       </body>
     </html>
   );

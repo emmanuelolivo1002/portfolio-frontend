@@ -26,6 +26,10 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@iconify-json/logos": "^1.1.43",
+    "@iconify-json/lucide": "^1.1.192",
+    "@iconify-json/mdi": "^1.1.66",
+    "@iconify/tailwind": "^1.1.1",
     "@svgr/webpack": "^8.1.0",
     "@tailwindcss/typography": "^0.5.13",
     "@types/node": "^20",

@@ -1,5 +1,3 @@
-import React from "react";
-
 // Components
 import { DateTime } from "luxon";
 import BlockRendererClient from "./BlockRendererClient";
@@ -22,7 +20,7 @@ const TimelineCard = ({ job, index }: { job: Job; index: number }) => {
     location,
     startDate,
     endDate,
-    description,
+    // description, // ? Not used in favor of detailedDescription
     detailedDescription,
   } = job;
 
@@ -85,7 +83,15 @@ const TimelineCard = ({ job, index }: { job: Job; index: number }) => {
   );
 };
 
-const ExperienceSection = ({ data }: { readonly data: any }) => {
+const ExperienceSection = ({
+  data,
+}: {
+  readonly data: {
+    readonly title: string;
+    readonly subtitle: string;
+    readonly job: Job[];
+  };
+}) => {
   const { title, subtitle, job: jobsArray } = data;
 
   return (

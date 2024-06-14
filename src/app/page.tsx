@@ -1,7 +1,8 @@
+import { getHomePageData } from "@/data/loaders";
 // Components
 import HeroSection from "@/components/custom/HeroSection";
 import ExperienceSection from "@/components/custom/ExperienceSection";
-import { getHomePageData } from "@/data/loaders";
+import ProjectsSection from "@/components/custom/ProjectsSection";
 
 export default async function Home() {
   const strapiData = await getHomePageData();
@@ -24,12 +25,7 @@ export default async function Home() {
     <>
       <main className="space-y-32 pb-6">
         {blocks.map(blockRenderer)}
-        <div
-          id="projects"
-          className="my-20 flex h-svh items-center justify-center rounded-lg border-2 border-green-500"
-        >
-          <h2>Projects</h2>
-        </div>
+        <ProjectsSection />
         <div
           id="about"
           className="my-20 flex h-svh items-center justify-center rounded-lg border-2 border-green-500"

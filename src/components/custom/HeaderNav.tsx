@@ -39,9 +39,7 @@ const useHash = () => {
   return hash;
 };
 
-export default useHash;
-
-export function HeaderNav({ data }: Readonly<HeaderProps>) {
+const HeaderNav = ({ data }: Readonly<HeaderProps>) => {
   const { navigationLink } = data;
 
   const [currentHash, setCurrentHash] = useState("");
@@ -94,4 +92,6 @@ export function HeaderNav({ data }: Readonly<HeaderProps>) {
       </NavigationMenu>
     </div>
   );
-}
+};
+
+export default HeaderNav;
