@@ -1,14 +1,13 @@
 import qs from "qs";
-import { flattenAttributes, getStrapiURL } from "@/lib/utils";
+import { getStrapiURL } from "@/lib/utils";
 
 const baseUrl = getStrapiURL();
 
 export async function fetchData(url: string) {
   try {
     const response = await fetch(url, { cache: "no-store" });
-    const data = await response.json();
-    const flattenedData = flattenAttributes(data);
-    return flattenedData;
+    const { data } = await response.json(); // Ignore the meta attribute
+    return data;
   } catch (error) {
     console.error(error);
   }
@@ -25,16 +24,17 @@ export async function getHomePageData() {
             primaryLink: true,
             secondaryLink: true,
             job: true,
-            project: {
+            projects: {
+              fields: ["id", "title", "shortDescription"],
               populate: {
-                thumbnail: {
-                  fields: ["id", "name", "formats"],
+                project_categories: {
+                  fields: ["label"],
                 },
                 technologies: {
                   fields: ["iconKey", "label"],
                 },
-                project_categories: {
-                  fields: ["id", "label"],
+                thumbnail: {
+                  fields: ["name", "url", "formats"],
                 },
               },
             },
@@ -69,6 +69,23 @@ export async function getGlobalPageMetadata() {
 
   url.search = qs.stringify({
     fields: ["title", "description"],
+  });
+
+  return await fetchData(url.href);
+}
+export async function getProjectData(projectId: number) {
+  const url = new URL(`/api/projects/${projectId}`, baseUrl);
+
+  url.search = qs.stringify({
+    fields: ["title", "detailedDescription", "linkToView", "linkToCode"],
+    populate: {
+      project_categories: {
+        fields: ["label"],
+      },
+      technologies: {
+        fields: ["iconKey", "label"],
+      },
+    },
   });
 
   return await fetchData(url.href);

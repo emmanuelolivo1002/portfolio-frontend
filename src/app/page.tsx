@@ -1,8 +1,10 @@
+// Utils
 import { getHomePageData } from "@/data/loaders";
+
 // Components
 import HeroSection from "@/components/custom/HeroSection";
 import ExperienceSection from "@/components/custom/ExperienceSection";
-import ProjectsSection from "@/components/custom/ProjectsSection";
+import ProjectsSection from "@/components/custom/ProjectsSection/ProjectsSection";
 
 export default async function Home() {
   const strapiData = await getHomePageData();
