@@ -79,6 +79,10 @@ const config = {
   plugins: [
     require("tailwindcss-animate"),
     addIconSelectors(["mdi", "lucide", "logos"]),
+    require("tailwind-scrollbar")({
+      nocompatible: true,
+      preferredStrategy: "pseudoelements",
+    }),
   ],
 } satisfies Config;
 
