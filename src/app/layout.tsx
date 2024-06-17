@@ -34,7 +34,7 @@ export default async function RootLayout({
       lang="en"
       className="scrollbar-thumb-rounded-full scrollbar scrollbar-w-3 scrollbar-h-3 scrollbar-thumb-primary/40 active:scrollbar-thumb-primary hover:scrollbar-thumb-primary/60 scrollbar-track-[transparent] hover:scrollbar-track-foreground/10 [&_*]:scrollbar-thumb-rounded-full [&_*]:scrollbar [&_*]:scrollbar-w-3 [&_*]:scrollbar-h-3 [&_*]:scrollbar-thumb-primary/40 [&_*]:active:scrollbar-thumb-primary [&_*]:hover:scrollbar-thumb-primary/60 [&_*]:scrollbar-track-[transparent] [&_*]:hover:scrollbar-track-foreground/10 scroll-smooth [&_*]:scroll-smooth"
     >
-      <body className={lexendDeca.className + " "}>
+      <body className={lexendDeca.className}>
         <HeaderNav data={globalData.header} />
         {children}
         <Footer />
