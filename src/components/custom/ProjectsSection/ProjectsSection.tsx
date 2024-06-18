@@ -12,8 +12,6 @@ const ProjectsSection = ({
 }) => {
   const { title, subtitle, projects } = data;
 
-  console.dir(data, { depth: null });
-
   return (
     <section id="projects" className="container mx-auto">
       <div className="mb-12 mt-12 flex flex-col items-center md:mt-24">

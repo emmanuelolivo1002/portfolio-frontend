@@ -77,8 +77,20 @@ const config = {
     },
   },
   plugins: [
+    require("@tailwindcss/typography"),
     require("tailwindcss-animate"),
-    addIconSelectors(["mdi", "lucide", "logos"]),
+    addIconSelectors([
+      "mdi",
+      "lucide",
+      "ion",
+      "logos",
+      "fa-brands",
+      "file-icons",
+      "hugeicons",
+      "akar-icons",
+      "devicon-plain",
+      "grommet-icons",
+    ]),
     require("tailwind-scrollbar")({
       nocompatible: true,
       preferredStrategy: "pseudoelements",

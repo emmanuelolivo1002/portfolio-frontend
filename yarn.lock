@@ -1108,6 +1108,55 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-2.0.3.tgz#4a2868d75d6d6963e423bcf90b7fd1be343409d3"
   integrity sha512-93zYdMES/c1D69yZiKDBj0V24vqNzB/koF26KPaagAfd3P/4gUlh3Dys5ogAK+Exi9QyzlD8x/08Zt7wIKcDcA==
 
+"@iconify-json/akar-icons@^1.1.24":
+  version "1.1.24"
+  resolved "https://registry.yarnpkg.com/@iconify-json/akar-icons/-/akar-icons-1.1.24.tgz#3764a529030030e7d64fff012e51976680d8ef18"
+  integrity sha512-u+vnp/k+Mp1PU1jZITGvbZit9g+LzvDo9C1GvwlFDCqEkCg/6SG74iqa8XkbdNKzcybT7vLlbo2OqI+ccylfqA==
+  dependencies:
+    "@iconify/types" "*"
+
+"@iconify-json/devicon-plain@^1.1.42":
+  version "1.1.42"
+  resolved "https://registry.yarnpkg.com/@iconify-json/devicon-plain/-/devicon-plain-1.1.42.tgz#ed60f3ddee42616f35ab130aa5cfbe4e1b4face8"
+  integrity sha512-NGCuw6BHn8lpjbVVa4XvYnprhWZ6IWkr6O19b69ySpDyi8QF3lh/Pe5As7C6eAG1KsblxQFqwcztgILOOmZqAA==
+  dependencies:
+    "@iconify/types" "*"
+
+"@iconify-json/fa-brands@^1.1.8":
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/@iconify-json/fa-brands/-/fa-brands-1.1.8.tgz#b6b8304f0b617621cb38ce440a037259feed26ea"
+  integrity sha512-0HVT1+7hDww2vTtGyX4maUyiEXDYd6CK57bOGJ3hc3fjmXpMI9QKdej21pPSv1jBZ2nGzTlg8WJ2yNtN88/lFQ==
+  dependencies:
+    "@iconify/types" "*"
+
+"@iconify-json/file-icons@^1.1.8":
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/@iconify-json/file-icons/-/file-icons-1.1.8.tgz#2cf1e1f86b1ad1b85b1283d24e9b4b302d6535f6"
+  integrity sha512-gzkxwnzEN0FVJZQIM/X7aqlN98z/XQ8ymb/BC1ebr3lJHvmQ5n8gMhWeytnJHHwRERg/zokTXSQDt62ANwcs/w==
+  dependencies:
+    "@iconify/types" "*"
+
+"@iconify-json/grommet-icons@^1.1.11":
+  version "1.1.11"
+  resolved "https://registry.yarnpkg.com/@iconify-json/grommet-icons/-/grommet-icons-1.1.11.tgz#b65cc57c2b56a0bfebe55c54d467b804494e8076"
+  integrity sha512-69RSSscQ9oDLO3Tq5PrOjiPiRldkhTy+IYEFjuTzubc5kWz0gxHPJYg/Jgkow7KAp6IqWrp99ioMCikD1UV54A==
+  dependencies:
+    "@iconify/types" "*"
+
+"@iconify-json/hugeicons@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@iconify-json/hugeicons/-/hugeicons-1.1.0.tgz#76ed8e7db2bd5e141e84169fa0c2babae64bb340"
+  integrity sha512-MzzShBJQsOB92kzPMBe2dI35m0BrR7Z7yEQ0Al84ULQ46PRAAu+RBkqmTzqY+T2uBB1PeGe8sPs+8lGRXClGjg==
+  dependencies:
+    "@iconify/types" "*"
+
+"@iconify-json/ion@^1.1.18":
+  version "1.1.18"
+  resolved "https://registry.yarnpkg.com/@iconify-json/ion/-/ion-1.1.18.tgz#68da26671e826a902db0ababd9bf0ec0ed5f9561"
+  integrity sha512-iS4PRBySPnTqz4IyNGc62KtNs4mG9oh/mXyVXcMDluxGOz7W4MSnKeazz23x7aQLHAx/JhbFStl9YMSt2z3AQg==
+  dependencies:
+    "@iconify/types" "*"
+
 "@iconify-json/logos@^1.1.43":
   version "1.1.43"
   resolved "https://registry.yarnpkg.com/@iconify-json/logos/-/logos-1.1.43.tgz#9e4f08a5c013a65bd926e3713328233e20ff3a2e"

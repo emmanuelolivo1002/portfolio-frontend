@@ -44,9 +44,6 @@ const ProjectCard = ({ project }: { project: Project }) => {
             {category.label}
           </span>
         ))}
-        <span className="rounded-2xl border-2 border-foreground px-2 py-1 text-xs text-foreground">
-          Back End
-        </span>
       </div>
 
       {/* Project Title */}
