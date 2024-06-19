@@ -3,15 +3,17 @@
 import React, { useState, useEffect, Dispatch, SetStateAction } from "react";
 
 // Components
-import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"; // Adjust import based on your structure
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Skeleton } from "@/components/ui/skeleton";
 import ArticleRenderer from "../ArticleRenderer";
+import TechnologyIconRenderer from "../TechnologyIconRenderer";
 
 // Utils
 import { getProjectData } from "@/data/loaders";
 
 // Types
-import { Project, Technology } from "@/types/projectTypes";
+import { Project } from "@/types/projectTypes";
+import { Button } from "@/components/ui/button";
 
 const LoadingSkeleton = () => {
   return (
@@ -32,52 +34,24 @@ const LoadingSkeleton = () => {
   );
 };
 
-const ICON_MAP = {
-  default: "iconify mdi--code",
-  nextjs: "iconify file-icons--nextjs",
-  bootstrap: "iconify fa-brands--bootstrap",
-  capacitor: "iconify ion--logo-capacitor",
-  css: "iconify fa-brands--css3-alt",
-  figma: "iconify hugeicons--figma",
-  html: "iconify fa-brands--html5",
-  java: "iconify hugeicons--java",
-  javascript: "iconify fa-brands--js",
-  jquery: "iconify mdi--jquery",
-  react: "iconify fa-brands--react",
-  typescript: "iconify akar-icons--typescript-fill",
-  mongodb: "iconify devicon-plain--mongodb",
-  tailwind: "iconify mdi--tailwind",
-  mysql: "iconify grommet-icons--mysql",
-  swift: "iconify fa-brands--swift",
-  wordpress: "iconify fa-brands--wordpress-simple",
-};
-
-const TechnologyIconRenderer = ({ technology }: { technology: Technology }) => {
-  const { iconKey, label } = technology;
-
-  const finalIcon =
-    ICON_MAP[iconKey as keyof typeof ICON_MAP] || ICON_MAP.default;
-
-  return (
-    <div className="flex items-center gap-2">
-      <span className={finalIcon + " text-xl"}></span>
-      {label}
-    </div>
-  );
-};
-
 const ProjectContentRenderer = ({ content }: { content: Project }) => {
-  const { detailedDescription, technologies, project_categories } = content;
+  const {
+    detailedDescription,
+    technologies,
+    project_categories,
+    linkToCode,
+    linkToView,
+  } = content;
 
   return (
-    <div className="min-h-80 space-y-4 overflow-y-auto px-6">
+    <div className="min-h-80 space-y-6 overflow-y-auto px-6">
       {/* Category Pills */}
       {project_categories.length && (
         <div className="flex gap-3">
           {project_categories.map((category) => (
             <span
               key={category.id}
-              className="rounded-2xl border-2 border-foreground px-2 py-1 text-xs text-foreground"
+              className="rounded-2xl border-2 border-muted-foreground px-2 py-1 text-xs text-muted-foreground"
             >
               {category.label}
             </span>
@@ -85,19 +59,44 @@ const ProjectContentRenderer = ({ content }: { content: Project }) => {
         </div>
       )}
 
+      {/* Article Content  */}
       <ArticleRenderer
         className="mx-auto max-w-none"
         content={detailedDescription}
       />
+
+      {/* Technologies Card */}
       {technologies.length && (
         <div className="grid grid-cols-3 gap-2 rounded-xl bg-secondary p-4 text-muted-foreground lg:grid-cols-4 lg:p-6">
           <h3 className="col-span-full mb-2 text-xl">Technologies Used:</h3>
-          {technologies.map((technology) => (
-            <TechnologyIconRenderer
-              key={technology.iconKey}
-              technology={technology}
-            />
+          {technologies.map(({ label, iconKey }) => (
+            <div key={iconKey} className="flex items-center gap-2">
+              <TechnologyIconRenderer iconKey={iconKey} className="text-lg" />
+              {label}
+            </div>
           ))}
+        </div>
+      )}
+
+      {/* Button Links */}
+      {(linkToView || linkToCode) && (
+        <div className="align-center flex flex-col justify-center gap-4 pt-4 md:flex-row md:justify-start">
+          {linkToView && (
+            <Button size="lg" variant="outline" asChild>
+              <a href={linkToView} target="_blank">
+                <span className="iconify akar-icons--link-out mr-2 text-xl"></span>
+                Go To Live Project
+              </a>
+            </Button>
+          )}
+          {linkToCode && (
+            <Button size="lg" variant="outline" asChild>
+              <a href={linkToCode} target="_blank">
+                <span className="iconify mdi--code mr-2 text-2xl"></span> View
+                Source Code
+              </a>
+            </Button>
+          )}
         </div>
       )}
     </div>
@@ -147,7 +146,7 @@ const ProjectDialog = ({
         ) : (
           <>
             <DialogTitle className="px-6 text-primary">Loading</DialogTitle>
-            <div className="min-h-80">
+            <div className="min-h-80 p-6">
               <LoadingSkeleton />
               <pre>{JSON.stringify(content, null, 2)}</pre>
             </div>
