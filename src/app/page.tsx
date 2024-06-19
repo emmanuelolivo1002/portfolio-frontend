@@ -5,12 +5,13 @@ import { getHomePageData } from "@/data/loaders";
 import HeroSection from "@/components/custom/HeroSection";
 import ExperienceSection from "@/components/custom/ExperienceSection";
 import ProjectsSection from "@/components/custom/ProjectsSection/ProjectsSection";
+import AboutSection from "@/components/custom/AboutSection";
 
 export default async function Home() {
   const strapiData = await getHomePageData();
   const { blocks } = strapiData;
 
-  // console.dir(blocks, { depth: null });
+  console.dir(blocks, { depth: null });
 
   function blockRenderer(block: any) {
     switch (block.__component) {
@@ -20,6 +21,8 @@ export default async function Home() {
         return <ExperienceSection key={block.id} data={block} />;
       case "layout.projects-section":
         return <ProjectsSection key={block.id} data={block} />;
+      case "layout.about":
+        return <AboutSection key={block.id} data={block} />;
       default:
         return null;
     }
@@ -32,14 +35,8 @@ export default async function Home() {
       <main className="space-y-32 pb-6">
         {blocks.map(blockRenderer)}
         <div
-          id="about"
-          className="my-20 flex h-svh items-center justify-center rounded-lg border-2 border-green-500"
-        >
-          <h2>About Me</h2>
-        </div>
-        <div
           id="contact"
-          className="my-20 flex h-svh items-center justify-center rounded-lg border-2 border-green-500"
+          className="my-20 flex h-svh items-center justify-center rounded-lg border-2 border-primary"
         >
           <h2>Contact</h2>
         </div>
