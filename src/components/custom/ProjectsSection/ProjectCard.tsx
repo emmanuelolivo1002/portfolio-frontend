@@ -30,15 +30,15 @@ const ProjectCard = ({ project }: { project: Project }) => {
       {/* Image */}
       <div className="relative mb-4 aspect-video w-full overflow-hidden rounded-lg [&>div]:hover:opacity-100 [&_img]:hover:scale-105">
         {/* Add a overlay with a search icon in the center */}
-        <div className="absolute inset-0 z-10 flex items-center justify-center bg-black bg-opacity-30 opacity-0 transition-opacity duration-300 ease-in-out">
-          <div className="flex items-center justify-center rounded-full border-2 border-primary/40 bg-muted p-2">
+        <div className="absolute inset-0 z-10 flex items-center justify-center bg-black bg-opacity-30 opacity-0 transition-opacity duration-300 ease-out">
+          <div className="flex items-center justify-center rounded-full border-2 border-muted-foreground/10 bg-muted p-2 shadow-xl">
             <span className="iconify mdi--search text-5xl text-primary"></span>
           </div>
         </div>
         <Image
           src={getStrapiURL() + thumbnailData.url}
           alt={thumbnail.name}
-          className="h-full w-full object-cover object-center transition-transform duration-300 ease-in-out"
+          className="h-full w-full object-cover object-center transition-transform duration-300 ease-out"
           width={thumbnailData.width}
           height={thumbnailData.height}
         />
