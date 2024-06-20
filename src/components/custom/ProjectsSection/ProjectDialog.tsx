@@ -84,7 +84,7 @@ const ProjectContentRenderer = ({ content }: { content: Project }) => {
           {linkToView && (
             <Button size="lg" variant="outline" asChild>
               <a href={linkToView} target="_blank">
-                <span className="iconify akar-icons--link-out mr-2 text-xl"></span>
+                <span className="iconify mdi--external-link mr-2 text-xl"></span>
                 Go To Live Project
               </a>
             </Button>

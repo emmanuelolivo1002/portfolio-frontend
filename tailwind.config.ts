@@ -80,6 +80,7 @@ const config = {
     require("@tailwindcss/typography"),
     require("tailwindcss-animate"),
     addIconSelectors([
+      "bi",
       "mdi",
       "lucide",
       "ion",

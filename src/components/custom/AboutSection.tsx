@@ -13,16 +13,16 @@ const AboutSection = ({
 
   return (
     <section id="about" className="">
-      <div className="container relative mx-auto flex">
+      <div className="container relative mx-auto flex lg:justify-end">
         <Image
-          src="https://via.placeholder.com/2000x2000"
+          src="https://via.placeholder.com/2500x500"
           alt="about me"
           height={500}
           width={2500}
-          className="h-full w-[85%] rounded-xl"
+          className="absolute -top-14 left-0 z-0 h-full rounded-xl"
         />
 
-        <div className="absolute right-0 top-1/3 max-w-prose rounded-lg bg-secondary bg-gradient-to-br from-secondary to-primary/10 p-10 text-secondary-foreground">
+        <div className="z-10 max-w-prose rounded-lg bg-secondary bg-gradient-to-br from-secondary to-primary/10 p-10 text-secondary-foreground">
           <h2 className="mb-4 text-4xl font-bold text-primary">{title}</h2>
           <p className="text-lg">{description}</p>
         </div>

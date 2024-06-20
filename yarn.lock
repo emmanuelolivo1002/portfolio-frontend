@@ -1115,6 +1115,13 @@
   dependencies:
     "@iconify/types" "*"
 
+"@iconify-json/bi@^1.1.23":
+  version "1.1.23"
+  resolved "https://registry.yarnpkg.com/@iconify-json/bi/-/bi-1.1.23.tgz#e70433b04609e96c8e5152867a55f82988ae0e70"
+  integrity sha512-1te+g9ZzI+PU1Lv6Xerd3XPXf4DE6g3TvDL2buIopTAfrauPHyXCHPFQMrzoQVNrVPCpN3rv3vBtJMPyBwJ9IA==
+  dependencies:
+    "@iconify/types" "*"
+
 "@iconify-json/devicon-plain@^1.1.42":
   version "1.1.42"
   resolved "https://registry.yarnpkg.com/@iconify-json/devicon-plain/-/devicon-plain-1.1.42.tgz#ed60f3ddee42616f35ab130aa5cfbe4e1b4face8"
