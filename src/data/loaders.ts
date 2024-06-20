@@ -58,7 +58,7 @@ export async function getGlobalData() {
   const url = new URL("/api/global", baseUrl);
 
   url.search = qs.stringify({
-    populate: ["header.navigationLink"],
+    populate: ["header.navigationLink", "footer.linkToSource"],
   });
 
   return await fetchData(url.href);

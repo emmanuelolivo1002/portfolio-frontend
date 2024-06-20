@@ -26,10 +26,10 @@ const ContactSection = ({
   const { title, subtitle, socialLinks } = data;
 
   return (
-    <section id="contact" className="py-36">
+    <section id="contact" className="py-16 md:py-28">
       <div className="container relative mx-auto">
         <div className="mb-12 flex flex-col items-center lg:mb-16">
-          <h2 className="mb-8 text-center text-5xl text-primary lg:mb-12 lg:text-9xl">
+          <h2 className="mb-8 text-center text-5xl text-primary md:text-7xl lg:mb-12 lg:text-8xl xl:text-9xl">
             {title}
           </h2>
           <p className="max-w-prose text-center text-muted-foreground md:text-xl">
@@ -37,7 +37,7 @@ const ContactSection = ({
           </p>
         </div>
         {/* Social Links */}
-        <div className="flex justify-center gap-6">
+        <div className="flex flex-wrap justify-center gap-4 md:gap-6">
           {Object.entries(socialLinks).flatMap(([key, value]) => {
             if (!value) return [];
 
@@ -53,12 +53,12 @@ const ContactSection = ({
             return (
               <a
                 key={key}
-                className="flex items-center justify-center rounded-full bg-gradient-to-br from-secondary to-primary/10 p-2 text-muted-foreground shadow-lg transition-colors duration-300 ease-in-out hover:bg-primary hover:from-primary hover:text-primary-foreground lg:p-6"
+                className="flex items-center justify-center rounded-full bg-gradient-to-br from-secondary to-primary/10 p-2 text-muted-foreground shadow-lg transition-colors duration-300 ease-in-out hover:bg-primary hover:from-primary hover:text-primary-foreground md:p-6"
                 target="_blank"
                 rel="noopener noreferrer"
                 href={href}
               >
-                <span className={`${finalIcon} text-2xl lg:text-6xl`}></span>
+                <span className={`${finalIcon} text-4xl md:text-6xl`}></span>
               </a>
             );
           })}

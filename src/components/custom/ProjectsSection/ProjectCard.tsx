@@ -23,7 +23,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
   const thumbnailData = thumbnail.formats.medium;
 
   // Get at most 10 technologies
-  const technologiesToShow = technologies.slice(0, 10);
+  const technologiesToShow = technologies.slice(0, 6);
 
   return (
     <ProjectCardWrapper projectId={id}>
@@ -62,7 +62,9 @@ const ProjectCard = ({ project }: { project: Project }) => {
       </h3>
 
       {/* Short Description */}
-      <p className="mt-2 text-lg text-foreground">{shortDescription}</p>
+      <p className="mt-2 text-sm text-foreground md:text-base lg:text-base xl:text-lg">
+        {shortDescription}
+      </p>
 
       {/* Technologies */}
       {technologiesToShow.length && (
@@ -80,9 +82,6 @@ const ProjectCard = ({ project }: { project: Project }) => {
           ))}
         </div>
       )}
-
-      {/* View Button */}
-      <Button className="mt-4">View Project</Button>
     </ProjectCardWrapper>
   );
 };

@@ -1,5 +1,8 @@
-import { Project } from "@/types/projectTypes";
+// Components
 import ProjectCard from "./ProjectCard";
+
+// Types
+import { Project } from "@/types/projectTypes";
 
 const ProjectsSection = ({
   data,
@@ -25,7 +28,7 @@ const ProjectsSection = ({
         </div>
 
         {/* Cards Container */}
-        <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-14 md:grid-cols-2 md:gap-14 xl:grid-cols-3">
           {projects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}

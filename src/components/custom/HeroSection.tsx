@@ -9,6 +9,35 @@ import BackgroundSVG from "@/assets/svg/bg-2.svg";
 // Types
 import { LinkType } from "@/types/linkTypes";
 
+const HeadingWithGradient = ({ heading }: { heading: string }) => {
+  const regex = /Emmanuel Olivo/gi; // Regular expression to match all instances, case-insensitive
+
+  const formattedHeading = heading.split(regex).reduce(
+    (acc, part, index, array) => {
+      if (index < array.length - 1) {
+        return (
+          <>
+            {acc}
+            {part}
+            <span className="bg-foreground bg-gradient-to-br from-primary to-primary/20 bg-clip-text text-transparent">
+              Emmanuel Olivo
+            </span>
+          </>
+        );
+      }
+      return (
+        <>
+          {acc}
+          {part}
+        </>
+      );
+    },
+    <></>,
+  );
+
+  return <>{formattedHeading}</>;
+};
+
 const HeroSection = ({
   data,
 }: {
@@ -49,7 +78,7 @@ const HeroSection = ({
         </div>
         <div className="flex h-full flex-col justify-center">
           <h1 className="text-xl font-bold md:text-5xl lg:text-5xl">
-            {heading}
+            <HeadingWithGradient heading={heading} />
           </h1>
           <div className="mt-8 flex flex-col gap-8 md:flex-row">
             <Button size="xl" asChild>
