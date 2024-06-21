@@ -26,10 +26,10 @@ const ContactSection = ({
   const { title, subtitle, socialLinks } = data;
 
   return (
-    <section id="contact" className="py-16 md:py-28">
-      <div className="container relative mx-auto">
+    <section id="contact" className="flex h-screen items-center justify-center">
+      <div className="container relative mx-auto translate-y-[60px]">
         <div className="mb-12 flex flex-col items-center lg:mb-16">
-          <h2 className="mb-8 text-center text-5xl text-primary md:text-7xl lg:mb-12 lg:text-8xl xl:text-9xl">
+          <h2 className="mb-8 text-center text-8xl text-primary lg:mb-12 xl:text-9xl">
             {title}
           </h2>
           <p className="max-w-prose text-center text-muted-foreground md:text-xl">
