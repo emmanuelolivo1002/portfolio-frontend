@@ -24,6 +24,9 @@ export async function getHomePageData() {
             primaryLink: true,
             secondaryLink: true,
             job: true,
+            image: {
+              fields: ["name", "url", "formats"],
+            },
             projects: {
               fields: ["id", "title", "shortDescription"],
               populate: {

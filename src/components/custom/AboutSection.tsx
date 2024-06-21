@@ -1,13 +1,16 @@
 "use client";
 import { useRef } from "react";
 
+// utils
+import { getStrapiURL } from "@/lib/utils";
+
 // Components
 import Image from "next/image";
 import { MouseParallax } from "react-just-parallax";
+import BlockRendererClient from "./BlockRendererClient";
 
 // Types
 import { BlocksContent } from "@strapi/blocks-react-renderer";
-import BlockRendererClient from "./BlockRendererClient";
 
 const AboutSection = ({
   data,
@@ -15,13 +18,13 @@ const AboutSection = ({
   readonly data: {
     readonly title: string;
     readonly detailedDescription: BlocksContent;
-
-    // TODO: Add image maybe
+    readonly image: any;
   };
 }) => {
-  const parallaxWrapperRef = useRef<HTMLDivElement>(null);
+  const { title, detailedDescription, image } = data;
+  const imageData = image.formats.large;
 
-  const { title, detailedDescription } = data;
+  const parallaxWrapperRef = useRef<HTMLDivElement>(null);
 
   return (
     <section
@@ -35,10 +38,10 @@ const AboutSection = ({
           parallaxContainerRef={parallaxWrapperRef}
         >
           <Image
-            src="https://via.placeholder.com/2500x500"
-            alt="about me"
-            height={500}
-            width={2500}
+            src={getStrapiURL() + imageData.url}
+            alt={image.name}
+            height={imageData.height}
+            width={imageData.width}
             className="pointer-events-none h-[60vh] select-none rounded-t-xl lg:absolute lg:-top-14 lg:left-0 lg:z-0 lg:w-full lg:rounded-b-xl"
           />
         </MouseParallax>
