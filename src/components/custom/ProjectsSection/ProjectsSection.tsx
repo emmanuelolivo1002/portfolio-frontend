@@ -18,7 +18,7 @@ const ProjectsSection = ({
   return (
     <section id="projects" className="bg-secondary py-12 md:py-24 lg:py-36">
       <div className="container mx-auto">
-        <div className="mb-12 flex flex-col items-center">
+        <div className="mb-12 flex flex-col items-center md:mb-20">
           <h2 className="mb-8 text-center text-5xl text-primary md:text-8xl">
             {title}
           </h2>
