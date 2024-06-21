@@ -29,7 +29,7 @@ const AboutSection = ({
   return (
     <section
       id="about"
-      className="flex-center min-h-[80vh] py-12"
+      className="flex-center h-screen py-12"
       ref={parallaxWrapperRef}
     >
       <div className="flex-center mx-auto flex-col md:container lg:relative lg:items-end">
