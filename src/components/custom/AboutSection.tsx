@@ -29,27 +29,28 @@ const AboutSection = ({
   return (
     <section
       id="about"
-      className="flex-center min-h-[80vh]"
+      className="flex-center min-h-[80vh] py-12"
       ref={parallaxWrapperRef}
     >
-      <div className="mx-auto flex flex-col items-center md:container lg:relative lg:items-end">
+      <div className="flex-center mx-auto flex-col md:container lg:relative lg:items-end">
         <MouseParallax
           strength={0.08}
           parallaxContainerRef={parallaxWrapperRef}
+          enableOnTouchDevice={false}
         >
           <Image
             src={getStrapiURL() + imageData.url}
             alt={image.name}
             height={imageData.height}
             width={imageData.width}
-            className="pointer-events-none h-[60vh] select-none rounded-t-xl lg:absolute lg:-top-14 lg:left-0 lg:z-0 lg:w-full lg:rounded-b-xl"
+            className="pointer-events-none h-full select-none rounded-t-xl max-md:object-cover md:h-[60vh] lg:absolute lg:-top-14 lg:left-0 lg:z-0 lg:w-full lg:rounded-b-xl"
           />
         </MouseParallax>
         <div className="rounded-xl bg-secondary p-6 text-secondary-foreground shadow-xl lg:z-10 lg:rounded-xl lg:p-10">
           <h2 className="mb-4 text-center text-5xl text-primary lg:text-left">
             {title}
           </h2>
-          <div className="prose prose-invert text-lg">
+          <div className="prose prose-invert md:text-lg">
             <BlockRendererClient content={detailedDescription} />
           </div>
         </div>

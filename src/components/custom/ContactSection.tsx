@@ -29,10 +29,10 @@ const ContactSection = ({
     <section id="contact" className="flex h-screen items-center justify-center">
       <div className="container relative mx-auto translate-y-[60px]">
         <div className="mb-12 flex flex-col items-center lg:mb-16">
-          <h2 className="mb-8 text-center text-8xl text-primary lg:mb-12 xl:text-9xl">
+          <h2 className="mb-8 text-center text-5xl text-primary sm:text-8xl lg:mb-12 xl:text-9xl">
             {title}
           </h2>
-          <p className="max-w-prose text-center text-muted-foreground md:text-xl">
+          <p className="text-muted-foreground sm:max-w-prose sm:text-center md:text-xl">
             {subtitle}
           </p>
         </div>

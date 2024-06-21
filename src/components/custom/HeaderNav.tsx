@@ -67,19 +67,20 @@ const HeaderNav = ({ data }: Readonly<HeaderProps>) => {
   };
 
   return (
-    <div className="fixed left-0 right-0 top-0 z-50 hidden justify-center p-2 md:flex">
-      <NavigationMenu className="rounded-2xl border-2 border-ring bg-background/95 px-6 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <NavigationMenuList className="flex space-x-4">
+    <div className="fixed left-0 right-0 top-0 z-50 flex justify-center sm:p-2">
+      <NavigationMenu className="border-b-2 border-ring bg-background/95 px-2 backdrop-blur supports-[backdrop-filter]:bg-background/60 sm:rounded-2xl sm:border-2 sm:px-6">
+        <NavigationMenuList className="flex gap-1 overflow-x-auto sm:gap-4">
           {navigationLink.map((link, index) => {
             const isActive = currentHash === link.url;
-
             return (
               <NavigationMenuItem key={index}>
                 <Link href={link.url} passHref legacyBehavior>
                   <NavigationMenuLink
                     onClick={() => handleClick(link.url)}
-                    className={`block p-2 hover:bg-secondary hover:text-white ${
-                      isActive ? "bg-primary font-bold text-background" : ""
+                    className={`block whitespace-nowrap p-2 text-xs hover:bg-primary/60 hover:text-foreground focus:bg-primary focus:font-bold focus:text-primary-foreground active:bg-primary active:font-bold active:text-primary-foreground sm:text-base ${
+                      isActive
+                        ? "bg-primary font-bold text-primary-foreground"
+                        : ""
                     }`}
                   >
                     {link.label}
