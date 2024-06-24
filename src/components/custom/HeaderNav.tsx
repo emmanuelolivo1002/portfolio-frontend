@@ -1,5 +1,4 @@
 "use client";
-import { useState, useEffect } from "react";
 
 // Components
 import Link from "next/link";
@@ -28,7 +27,7 @@ const HeaderNav = ({ data }: Readonly<HeaderProps>) => {
 
   return (
     <div className="fixed left-0 right-0 top-0 z-50 flex justify-center sm:p-2">
-      <NavigationMenu className="border-b-2 border-ring bg-background/95 px-2 backdrop-blur supports-[backdrop-filter]:bg-background/60 sm:rounded-2xl sm:border-2 sm:px-6">
+      <NavigationMenu className="border-b-2 border-primary bg-background/95 px-2 backdrop-blur supports-[backdrop-filter]:bg-background/60 sm:rounded-2xl sm:border-2 sm:px-6">
         <NavigationMenuList className="flex gap-1 overflow-x-auto sm:gap-4">
           {navigationLink.map((link, index) => {
             return (

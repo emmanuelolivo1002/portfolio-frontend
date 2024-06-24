@@ -72,7 +72,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
           {technologiesToShow.map(({ iconKey }) => (
             <div
               key={iconKey}
-              className="flex items-center justify-center rounded-full border border-secondary-foreground/20 bg-secondary p-2"
+              className="bg-background-alt flex items-center justify-center rounded-full border border-secondary-foreground/20 p-2"
             >
               <TechnologyIconRenderer
                 iconKey={iconKey}

@@ -7,33 +7,34 @@
     color-scheme: dark;
 
     /* Variables */
-    --background: 147 48% 3%;
-    --foreground: 140 35% 93%;
+    --background: 102 45 5;
+    --background-alt: 105 23 10;
+    --foreground: 99 39 93;
 
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0 3.9;
+    --card-foreground: 0 0 98;
 
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0 3.9;
+    --popover-foreground: 0 0 98;
 
-    --primary: 144 100% 50%;
-    --primary-foreground: 0 0% 9%;
+    --primary: 100 70 75;
+    --primary-foreground: 103 47 6;
 
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 100 60 33;
+    --secondary-foreground: 103 47 6;
 
-    --muted: 0 0% 10%;
-    --muted-foreground: 0 0% 63.9%;
+    --muted: 0 0 10;
+    --muted-foreground: 0 0 63.9;
 
-    --accent: 144 100% 50%;
-    --accent-foreground: 0 0% 9%;
+    --accent: 100 85 61;
+    --accent-foreground: 0 0 9;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 62.8 30.6;
+    --destructive-foreground: 0 0 98;
 
-    --border: 0 0% 10%;
-    --input: 0 0% 10%;
-    --ring: 144 100% 25%;
+    --border: 0 0 10;
+    --input: 0 0 10;
+    --ring: 144 100 25;
 
     --radius: 0.5rem;
   }

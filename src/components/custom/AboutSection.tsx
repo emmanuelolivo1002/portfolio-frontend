@@ -46,7 +46,7 @@ const AboutSection = ({
             className="pointer-events-none h-full select-none rounded-t-xl max-md:object-cover md:h-[60vh] lg:absolute lg:-top-14 lg:left-0 lg:z-0 lg:w-full lg:rounded-b-xl"
           />
         </MouseParallax>
-        <div className="rounded-xl bg-secondary p-6 text-secondary-foreground shadow-xl lg:z-10 lg:rounded-xl lg:p-10">
+        <div className="bg-background-alt rounded-xl p-6 text-secondary-foreground shadow-xl lg:z-10 lg:rounded-xl lg:p-10">
           <h2 className="mb-4 text-center text-5xl text-primary lg:text-left">
             {title}
           </h2>

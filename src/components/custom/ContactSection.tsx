@@ -53,7 +53,7 @@ const ContactSection = ({
             return (
               <a
                 key={key}
-                className="flex items-center justify-center rounded-full bg-gradient-to-br from-secondary to-primary/10 p-2 text-muted-foreground shadow-lg transition-colors duration-300 ease-in-out hover:bg-primary hover:from-primary hover:text-primary-foreground md:p-6"
+                className="flex items-center justify-center rounded-full bg-gradient-to-br from-background-alt to-primary/10 p-2 text-muted-foreground shadow-lg transition-colors duration-300 ease-in-out hover:bg-primary hover:from-primary hover:text-primary-foreground md:p-6"
                 target="_blank"
                 rel="noopener noreferrer"
                 href={href}

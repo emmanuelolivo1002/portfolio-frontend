@@ -67,7 +67,7 @@ const ProjectContentRenderer = ({ content }: { content: Project }) => {
 
       {/* Technologies Card */}
       {technologies.length && (
-        <div className="grid grid-cols-3 gap-2 rounded-xl bg-secondary p-4 text-muted-foreground lg:grid-cols-4 lg:p-6">
+        <div className="bg-background-alt grid grid-cols-3 gap-2 rounded-xl p-4 text-muted-foreground lg:grid-cols-4 lg:p-6">
           <h3 className="col-span-full mb-2 text-xl">Technologies Used:</h3>
           {technologies.map(({ label, iconKey }) => (
             <div key={iconKey} className="flex items-center gap-2">
@@ -84,7 +84,7 @@ const ProjectContentRenderer = ({ content }: { content: Project }) => {
           {linkToView && (
             <Button size="lg" variant="outline" asChild>
               <a href={linkToView} target="_blank">
-                <span className="iconify mdi--external-link mr-2 text-xl"></span>
+                <span className="iconify mr-2 text-xl mdi--external-link"></span>
                 Go To Live Project
               </a>
             </Button>
@@ -92,7 +92,7 @@ const ProjectContentRenderer = ({ content }: { content: Project }) => {
           {linkToCode && (
             <Button size="lg" variant="outline" asChild>
               <a href={linkToCode} target="_blank">
-                <span className="iconify mdi--code mr-2 text-2xl"></span> View
+                <span className="iconify mr-2 text-2xl mdi--code"></span> View
                 Source Code
               </a>
             </Button>

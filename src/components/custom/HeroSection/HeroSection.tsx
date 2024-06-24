@@ -19,7 +19,7 @@ const HeadingWithGradientText = ({ heading }: { heading: string }) => {
           <>
             {acc}
             {part}
-            <span className="bg-foreground bg-gradient-to-br from-primary to-primary/20 bg-clip-text text-transparent">
+            <span className="bg-foreground bg-gradient-to-br from-accent to-primary/30 bg-clip-text text-transparent">
               Emmanuel Olivo
             </span>
           </>
