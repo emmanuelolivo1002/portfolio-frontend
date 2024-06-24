@@ -32,7 +32,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
         {/* Add a overlay with a search icon in the center */}
         <div className="absolute inset-0 z-10 flex items-center justify-center bg-black bg-opacity-30 opacity-0 transition-opacity duration-300 ease-out">
           <div className="flex items-center justify-center rounded-full border-2 border-muted-foreground/10 bg-muted p-2 shadow-xl">
-            <span className="iconify mdi--search text-5xl text-primary"></span>
+            <span className="iconify text-5xl text-primary mdi--search"></span>
           </div>
         </div>
         <Image
@@ -72,7 +72,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
           {technologiesToShow.map(({ iconKey }) => (
             <div
               key={iconKey}
-              className="flex items-center justify-center rounded-full bg-background p-2"
+              className="flex items-center justify-center rounded-full border border-secondary-foreground/20 bg-secondary p-2"
             >
               <TechnologyIconRenderer
                 iconKey={iconKey}
