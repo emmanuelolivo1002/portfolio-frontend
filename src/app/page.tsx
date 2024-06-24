@@ -2,7 +2,7 @@
 import { getHomePageData } from "@/data/loaders";
 
 // Components
-import HeroSection from "@/components/custom/HeroSection";
+import HeroSection from "@/components/custom/HeroSection/HeroSection";
 import ExperienceSection from "@/components/custom/ExperienceSection";
 import ProjectsSection from "@/components/custom/ProjectsSection/ProjectsSection";
 import AboutSection from "@/components/custom/AboutSection";
