@@ -1,42 +1,10 @@
-// Utils
-import { getStrapiURL } from "@/lib/utils";
-
 // Components
-import Link from "next/link";
-import { Button } from "../../ui/button";
 import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
+import HeroHeading from "./HeroHeading";
+import HeroButtons from "./HeroButtons";
 
 // Types
 import { LinkType } from "@/types/linkTypes";
-
-const HeadingWithGradientText = ({ heading }: { heading: string }) => {
-  const regex = /Emmanuel Olivo/gi; // Regular expression to match all instances, case-insensitive
-
-  const formattedHeading = heading.split(regex).reduce(
-    (acc, part, index, array) => {
-      if (index < array.length - 1) {
-        return (
-          <>
-            {acc}
-            {part}
-            <span className="bg-foreground bg-gradient-to-br from-primary to-accent/20 bg-clip-text text-transparent">
-              Emmanuel Olivo
-            </span>
-          </>
-        );
-      }
-      return (
-        <>
-          {acc}
-          {part}
-        </>
-      );
-    },
-    <></>,
-  );
-
-  return <>{formattedHeading}</>;
-};
 
 const HeroSection = ({
   data,
@@ -49,26 +17,6 @@ const HeroSection = ({
 }) => {
   const { primaryLink, secondaryLink, heading } = data;
 
-  const renderLink = (link: LinkType) => {
-    const { type, url, label } = link;
-    if (type === "file") {
-      return (
-        <a href={getStrapiURL() + url} target="_blank">
-          {label}
-        </a>
-      );
-    }
-    if (type === "external") {
-      return (
-        <a href={url} target="_blank">
-          {label}
-        </a>
-      );
-    }
-
-    return <Link href={url}>{label}</Link>;
-  };
-
   return (
     // Wrapper
     <BackgroundGradientAnimation
@@ -76,18 +24,8 @@ const HeroSection = ({
       className="container relative z-10 mx-auto py-10 md:h-screen md:max-h-[600px] lg:max-h-[800px]"
     >
       <div className="mt-6 flex h-full flex-col justify-center sm:mt-0 lg:max-w-[75%] xl:max-w-[85%]">
-        <h1 className="text-2xl font-bold sm:text-4xl md:text-5xl lg:text-6xl">
-          <HeadingWithGradientText heading={heading} />
-        </h1>
-
-        <div className="mt-8 flex flex-col gap-4 sm:gap-8 md:flex-row lg:mt-12">
-          <Button size="xl" asChild className="shadow-xl">
-            {renderLink(primaryLink)}
-          </Button>
-          <Button size="xl" asChild variant="outline" className="shadow-xl">
-            {renderLink(secondaryLink)}
-          </Button>
-        </div>
+        <HeroHeading heading={heading} />
+        <HeroButtons primaryLink={primaryLink} secondaryLink={secondaryLink} />
       </div>
     </BackgroundGradientAnimation>
   );

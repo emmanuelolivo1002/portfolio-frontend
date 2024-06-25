@@ -1,6 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 export const BackgroundGradientAnimation = ({
   gradientBackgroundStart = "hsl(147 48% 3%)",
@@ -87,7 +88,10 @@ export const BackgroundGradientAnimation = ({
   }, []);
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.2 }}
       className={cn(
         "overflow-hidden bg-[linear-gradient(40deg,var(--gradient-background-start),var(--gradient-background-end))]",
         containerClassName,
@@ -176,6 +180,6 @@ export const BackgroundGradientAnimation = ({
           ></div>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
