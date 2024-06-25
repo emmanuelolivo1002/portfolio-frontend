@@ -1,6 +1,13 @@
 "use client";
 
-import React, { useState, useEffect, Dispatch, SetStateAction } from "react";
+import React, {
+  useState,
+  useEffect,
+  Dispatch,
+  SetStateAction,
+  useRef,
+} from "react";
+import { motion, useScroll, useSpring } from "framer-motion";
 
 // Components
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
@@ -43,8 +50,32 @@ const ProjectContentRenderer = ({ content }: { content: Project }) => {
     linkToView,
   } = content;
 
+  const contentRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({ container: contentRef });
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
+
+  //     position: fixed;
+  // top: 0;
+  // left: 0;
+  // right: 0;
+  // height: 10px;
+  // background: var(--red);
+  // transform-origin: 0%;
   return (
-    <div className="min-h-80 space-y-6 overflow-y-auto px-6">
+    <div
+      ref={contentRef}
+      className="relative min-h-80 space-y-6 overflow-y-auto px-6"
+    >
+      <motion.div
+        className="fixed left-0 right-0 top-0 h-2 origin-left bg-primary"
+        style={{ scaleX }}
+      />
+
       {/* Category Pills */}
       {project_categories.length && (
         <div className="flex gap-3">
