@@ -17,17 +17,17 @@
     --popover: 0 0 3.9;
     --popover-foreground: 0 0 98;
 
-    --primary: 100 70 75;
-    --primary-foreground: 103 47 6;
+    --primary: 100 85 61;
+    --primary-foreground: 0 0 9;
 
     --secondary: 100 60 33;
     --secondary-foreground: 103 47 6;
 
+    --accent: 100 70 75;
+    --accent-foreground: 103 47 6;
+
     --muted: 0 0 10;
     --muted-foreground: 0 0 63.9;
-
-    --accent: 100 85 61;
-    --accent-foreground: 0 0 9;
 
     --destructive: 0 62.8 30.6;
     --destructive-foreground: 0 0 98;
