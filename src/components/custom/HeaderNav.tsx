@@ -35,7 +35,7 @@ const HeaderNav = ({ data }: Readonly<HeaderProps>) => {
                 <Link href={link.url} passHref legacyBehavior>
                   <NavigationMenuLink
                     onClick={() => handleClick(link.url)}
-                    className={`block whitespace-nowrap p-2 text-xs hover:bg-primary/60 hover:text-foreground focus:bg-primary focus:font-bold focus:text-primary-foreground active:bg-primary active:font-bold active:text-primary-foreground sm:text-base`}
+                    className={`block whitespace-nowrap p-2 text-xs hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:font-bold focus:text-primary-foreground active:bg-primary active:font-bold active:text-primary-foreground sm:text-base`}
                   >
                     {link.label}
                   </NavigationMenuLink>
