@@ -60,12 +60,17 @@ const HeroButtons = ({
       }}
     >
       <motion.div variants={buttonVariants}>
-        <Button size="xl" asChild className="shadow-xl">
+        <Button size="xl" asChild className="w-full shadow-xl">
           {renderLink(primaryLink)}
         </Button>
       </motion.div>
       <motion.div variants={buttonVariants}>
-        <Button size="xl" asChild variant="outline" className="shadow-xl">
+        <Button
+          size="xl"
+          asChild
+          variant="outline"
+          className="w-full shadow-xl"
+        >
           {renderLink(secondaryLink)}
         </Button>
       </motion.div>
