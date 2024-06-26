@@ -1,5 +1,6 @@
 "use client";
 import { useRef } from "react";
+import { Variants, motion } from "framer-motion";
 
 // utils
 import { getStrapiURL } from "@/lib/utils";
@@ -32,7 +33,14 @@ const AboutSection = ({
       className="flex-center h-screen py-12"
       ref={parallaxWrapperRef}
     >
-      <div className="flex-center mx-auto flex-col md:container lg:relative lg:items-end">
+      <motion.div
+        className="flex-center mx-auto flex-col md:container lg:relative lg:items-end"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{
+          ease: "easeInOut",
+        }}
+      >
         <MouseParallax
           strength={0.08}
           parallaxContainerRef={parallaxWrapperRef}
@@ -54,7 +62,7 @@ const AboutSection = ({
             <BlockRendererClient content={detailedDescription} />
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
