@@ -3,7 +3,7 @@ import { getHomePageData } from "@/data/loaders";
 
 // Components
 import HeroSection from "@/components/custom/HeroSection/HeroSection";
-import ExperienceSection from "@/components/custom/ExperienceSection";
+import ExperienceSection from "@/components/custom/ExperienceSection/ExperienceSection";
 import ProjectsSection from "@/components/custom/ProjectsSection/ProjectsSection";
 import AboutSection from "@/components/custom/AboutSection";
 import ContactSection from "@/components/custom/ContactSection";
