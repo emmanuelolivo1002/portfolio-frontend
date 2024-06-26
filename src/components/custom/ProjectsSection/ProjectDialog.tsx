@@ -59,13 +59,6 @@ const ProjectContentRenderer = ({ content }: { content: Project }) => {
     restDelta: 0.001,
   });
 
-  //     position: fixed;
-  // top: 0;
-  // left: 0;
-  // right: 0;
-  // height: 10px;
-  // background: var(--red);
-  // transform-origin: 0%;
   return (
     <div
       ref={contentRef}
@@ -179,7 +172,6 @@ const ProjectDialog = ({
             <DialogTitle className="px-6 text-primary">Loading</DialogTitle>
             <div className="min-h-80 p-6">
               <LoadingSkeleton />
-              <pre>{JSON.stringify(content, null, 2)}</pre>
             </div>
           </>
         )}
