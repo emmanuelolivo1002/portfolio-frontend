@@ -32,8 +32,7 @@ const ProjectsSection = ({
               ease: "easeOut",
             }}
             viewport={{
-              amount: "all",
-              once: true,
+              margin: "0px 0px 0px 1200px",
             }}
           >
             {title}
@@ -48,8 +47,7 @@ const ProjectsSection = ({
               ease: "easeOut",
             }}
             viewport={{
-              amount: "all",
-              once: true,
+              margin: "0px 0px 0px 1200px",
             }}
           >
             {subtitle}
@@ -57,16 +55,7 @@ const ProjectsSection = ({
         </div>
 
         {/* Cards Container */}
-        <motion.div
-          className="grid gap-14 md:grid-cols-2 md:gap-14 xl:grid-cols-3"
-          initial="hidden"
-          animate="visible"
-          transition={{
-            delayChildren: 1.8,
-            staggerChildren: 0.2,
-            ease: "easeInOut",
-          }}
-        >
+        <motion.div className="grid gap-14 md:grid-cols-2 md:gap-14 xl:grid-cols-3">
           {projects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}

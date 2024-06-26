@@ -1,6 +1,6 @@
 "use client";
-
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 // Components
 import Image from "next/image";
@@ -36,9 +36,24 @@ const ProjectCard = ({ project }: { project: Project }) => {
 
   return (
     <>
-      <div
+      <motion.div
         onClick={handleOpenDialog}
         className="flex cursor-pointer flex-col text-foreground"
+        initial="hidden"
+        whileInView="visible"
+        transition={{
+          ease: "easeInOut",
+        }}
+        variants={{
+          hidden: {
+            opacity: 0,
+            y: 50,
+          },
+          visible: {
+            opacity: 1,
+            y: 0,
+          },
+        }}
       >
         {/* Image */}
         <div className="relative mb-4 aspect-video w-full overflow-hidden rounded-lg [&>div]:hover:opacity-100 [&_img]:hover:scale-105">
@@ -95,7 +110,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
             ))}
           </div>
         )}
-      </div>
+      </motion.div>
       <ProjectDialog
         projectId={id}
         isOpen={isDialogOpen}

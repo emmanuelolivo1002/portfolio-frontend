@@ -1,6 +1,6 @@
 "use client";
 import { useRef } from "react";
-import { Variants, motion } from "framer-motion";
+import {  motion } from "framer-motion";
 
 // utils
 import { getStrapiURL } from "@/lib/utils";
