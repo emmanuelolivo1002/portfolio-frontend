@@ -7,14 +7,14 @@ import defaultTheme from "tailwindcss/defaultTheme";
 const { screens } = defaultTheme;
 
 const useTailwindBreakpoint = (query: keyof typeof screens): boolean => {
-  const mediaQuery = `(max-width: ${screens[query]})`;
-  const matchQueryList = window.matchMedia(mediaQuery);
-
   const [isMatch, setMatch] = useState<boolean>(false);
 
-  const onChange = (e: MediaQueryListEvent) => setMatch(e.matches);
-
   useEffect(() => {
+    const mediaQuery = `(max-width: ${screens[query]})`;
+    const matchQueryList = window.matchMedia(mediaQuery);
+
+    const onChange = (e: MediaQueryListEvent) => setMatch(e.matches);
+
     setMatch(matchQueryList.matches);
     matchQueryList.addEventListener("change", onChange);
     return () => matchQueryList.removeEventListener("change", onChange);
