@@ -24,19 +24,33 @@ import { Button } from "@/components/ui/button";
 
 const LoadingSkeleton = () => {
   return (
-    <div className="flex flex-col space-y-6">
-      <Skeleton className="h-80 w-full rounded-xl" />
-      <div className="space-y-2">
-        <Skeleton className="h-4 w-full" />
-        <Skeleton className="h-4 w-full" />
-        <Skeleton className="h-4 w-2/3" />
+    <div className="grid min-h-80 w-full min-w-[70vw] grid-cols-1 gap-6 overflow-hidden px-6 lg:grid-cols-[65ch_30ch]">
+      {/* Main Article */}
+      <div className="flex w-full max-w-prose flex-col gap-6">
+        <Skeleton className="h-80 w-full rounded-xl" />
+        <div className="space-y-2">
+          <Skeleton className="h-4 w-full" />
+          <Skeleton className="h-4 w-full" />
+          <Skeleton className="h-4 w-2/3" />
+        </div>
+        <div className="space-y-2">
+          <Skeleton className="h-4 w-full" />
+          <Skeleton className="h-4 w-full" />
+          <Skeleton className="h-4 w-2/3" />
+        </div>
+        <Skeleton className="h-40 w-full rounded-xl" />
       </div>
-      <div className="space-y-2">
+
+      {/* Sidebar */}
+      <div className="hidden flex-col gap-6 lg:flex">
         <Skeleton className="h-4 w-full" />
+
+        <Skeleton className="h-40 w-full rounded-xl" />
+
         <Skeleton className="h-4 w-full" />
-        <Skeleton className="h-4 w-2/3" />
+
+        <Skeleton className="h-4 w-full" />
       </div>
-      <Skeleton className="h-40 w-full rounded-xl" />
     </div>
   );
 };
