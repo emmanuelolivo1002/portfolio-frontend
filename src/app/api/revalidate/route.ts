@@ -2,14 +2,14 @@ import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 
 export async function GET(request: NextRequest) {
-  const secret = request.nextUrl.searchParams.get("secret");
+  const token = request.nextUrl.searchParams.get("tk");
   const path = request.nextUrl.searchParams.get("path") || "/";
 
   console.log(
-    `Received revalidation request for path: ${path} with secret: ${secret}`,
+    `Received revalidation request for path: ${path} with token: ${token}`,
   );
 
-  if (secret !== process.env.MY_SECRET_TOKEN) {
+  if (token !== process.env.REVALIDATE_TOKEN) {
     console.log("Invalid token");
     return NextResponse.json({ message: "Invalid token" }, { status: 401 });
   }
