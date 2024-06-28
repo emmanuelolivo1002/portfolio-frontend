@@ -3,12 +3,9 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 // Components
-import Image from "next/image";
+import { StrapiImage } from "../StrapiImage";
 import TechnologyIconRenderer from "../TechnologyIconRenderer";
 import ProjectDialog from "./ProjectDialog";
-
-// utils
-import { getStrapiURL } from "@/lib/utils";
 
 // Types
 import { Project } from "@/types/projectTypes";
@@ -63,8 +60,8 @@ const ProjectCard = ({ project }: { project: Project }) => {
               <span className="iconify text-5xl text-primary mdi--search"></span>
             </div>
           </div>
-          <Image
-            src={getStrapiURL() + thumbnailData.url}
+          <StrapiImage
+            src={thumbnailData.url}
             alt={thumbnail.name}
             className="h-full w-full object-cover object-center transition-transform duration-300 ease-out"
             width={thumbnailData.width}

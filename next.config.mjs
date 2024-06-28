@@ -12,6 +12,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "via.placeholder.com",
       },
+      {
+        protocol: "https",
+        hostname: "worthy-renewal-37fc677982.media.strapiapp.com",
+      },
     ],
   },
   webpack(config) {

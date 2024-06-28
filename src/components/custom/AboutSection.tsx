@@ -1,12 +1,9 @@
 "use client";
 import { useRef } from "react";
-import {  motion } from "framer-motion";
-
-// utils
-import { getStrapiURL } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 // Components
-import Image from "next/image";
+import { StrapiImage } from "./StrapiImage";
 import { MouseParallax } from "react-just-parallax";
 import BlockRendererClient from "./BlockRendererClient";
 
@@ -46,8 +43,8 @@ const AboutSection = ({
           parallaxContainerRef={parallaxWrapperRef}
           enableOnTouchDevice={false}
         >
-          <Image
-            src={getStrapiURL() + imageData.url}
+          <StrapiImage
+            src={imageData.url}
             alt={image.name}
             height={imageData.height}
             width={imageData.width}
