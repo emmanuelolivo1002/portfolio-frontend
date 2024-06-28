@@ -5,6 +5,7 @@ import { getGlobalData, getGlobalPageMetadata } from "@/data/loaders";
 
 // Components
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import HeaderNav from "@/components/custom/HeaderNav";
 import Footer from "@/components/custom/Footer";
 
@@ -40,6 +41,7 @@ export default async function RootLayout({
         {children}
         <Footer data={globalData.footer} />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
