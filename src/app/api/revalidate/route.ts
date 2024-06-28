@@ -6,10 +6,6 @@ export async function POST(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const path = searchParams.get("path") || "/";
 
-  console.log(
-    `Received revalidation request for path: ${path} with secret: ${secret}`,
-  );
-
   if (secret !== process.env.REVALIDATE_TOKEN) {
     console.log("Invalid token");
     return NextResponse.json({ message: "Invalid token" }, { status: 401 });
@@ -19,7 +15,7 @@ export async function POST(request: NextRequest) {
     // Trigger revalidation
     await revalidatePath(path);
     console.log(`Successfully revalidated path: ${path}`);
-    return NextResponse.json({ revalidated: true });
+    return NextResponse.json({ revalidated: true }, { status: 200 });
   } catch (err) {
     console.error(`Error revalidating path: ${path}`, err);
     return NextResponse.json(
