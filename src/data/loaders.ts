@@ -5,9 +5,14 @@ const baseUrl = getStrapiURL();
 
 export async function fetchData(url: string) {
   try {
-    const response = await fetch(url, process.env.NODE_ENV === "development" ? {
-      cache:  "no-store",
-    } : {});
+    const response = await fetch(
+      url,
+      process.env.NODE_ENV === "development"
+        ? {
+            cache: "no-store",
+          }
+        : {},
+    );
     const { data } = await response.json(); // Ignore the meta attribute
     return data;
   } catch (error) {
@@ -23,8 +28,20 @@ export async function getHomePageData() {
       populate: {
         blocks: {
           populate: {
-            primaryLink: true,
-            secondaryLink: true,
+            primaryLink: {
+              populate: {
+                fileData: {
+                  fields: ["name", "url"],
+                },
+              },
+            },
+            secondaryLink: {
+              populate: {
+                fileData: {
+                  fields: ["name", "url"],
+                },
+              },
+            },
             job: true,
             image: {
               fields: ["name", "url", "formats"],

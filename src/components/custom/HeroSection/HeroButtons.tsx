@@ -1,7 +1,7 @@
 "use client";
 // Utils
 import { Variants, motion } from "framer-motion";
-import { getStrapiURL } from "@/lib/utils";
+import { getStrapiMedia, getStrapiURL } from "@/lib/utils";
 
 // Components
 import { Button } from "@/components/ui/button";
@@ -30,10 +30,11 @@ const HeroButtons = ({
   secondaryLink: LinkType;
 }) => {
   const renderLink = (link: LinkType) => {
-    const { type, url, label } = link;
-    if (type === "file") {
+    const { type, url, label, fileData } = link;
+    if (type === "file" && fileData !== null && fileData?.url) {
+      const fileUrl = getStrapiMedia(fileData?.url) || "";
       return (
-        <a href={getStrapiURL() + url} target="_blank">
+        <a href={fileUrl} target="_blank">
           {label}
         </a>
       );
