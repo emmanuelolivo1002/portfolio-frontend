@@ -17,8 +17,10 @@ const ICON_MAP = {
   react: "iconify fa-brands--react",
   typescript: "iconify akar-icons--typescript-fill",
   mongodb: "iconify devicon-plain--mongodb",
+  nodeJs: "iconify mdi--nodejs",
   tailwind: "iconify mdi--tailwind",
   mysql: "iconify grommet-icons--mysql",
+  php: "iconify mdi--language-php",
   swift: "iconify fa-brands--swift",
   wordpress: "iconify fa-brands--wordpress-simple",
 };
