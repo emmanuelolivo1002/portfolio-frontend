@@ -14,11 +14,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "worthy-renewal-37fc677982.media.strapiapp.com",
-      },
-      {
-        protocol: "https",
-        hostname: "adminv2.emmanuelolivo.com",
+        hostname: "*.emmanuelolivo.com",
       },
     ],
   },
