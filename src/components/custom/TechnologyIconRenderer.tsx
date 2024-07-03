@@ -21,6 +21,7 @@ const ICON_MAP = {
   tailwind: "iconify mdi--tailwind",
   mysql: "iconify grommet-icons--mysql",
   php: "iconify mdi--language-php",
+  postgresql: "iconify akar-icons--postgresql-fill",
   swift: "iconify fa-brands--swift",
   wordpress: "iconify fa-brands--wordpress-simple",
 };
