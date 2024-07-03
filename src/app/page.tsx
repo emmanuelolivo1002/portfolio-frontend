@@ -31,9 +31,5 @@ export default async function Home() {
 
   if (!blocks) return <p>No sections found</p>;
 
-  return (
-    <>
-      <main>{blocks.map(blockRenderer)}</main>
-    </>
-  );
+  return <main className="overflow-x-hidden">{blocks.map(blockRenderer)}</main>;
 }
