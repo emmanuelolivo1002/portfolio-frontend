@@ -10,6 +10,7 @@ const ICON_MAP = {
   capacitor: "iconify ion--logo-capacitor",
   css: "iconify fa-brands--css3-alt",
   figma: "iconify hugeicons--figma",
+  firebase: "iconify mdi--firebase",
   html: "iconify fa-brands--html5",
   java: "iconify hugeicons--java",
   javascript: "iconify fa-brands--js",
