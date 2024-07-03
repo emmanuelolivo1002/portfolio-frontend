@@ -22,7 +22,12 @@ const ProjectCard = ({ project }: { project: Project }) => {
     technologies,
   } = project;
 
-  const thumbnailData = thumbnail.formats.medium;
+  // If formats.medium is not available, use formats.small, if that is also not available, use thumbnail
+  const thumbnailData = thumbnail.formats?.medium
+    ? thumbnail.formats.medium
+    : thumbnail.formats?.small
+      ? thumbnail.formats.small
+      : thumbnail.formats.thumbnail;
 
   // Get at most 10 technologies
   const technologiesToShow = technologies.slice(0, 6);
@@ -60,13 +65,17 @@ const ProjectCard = ({ project }: { project: Project }) => {
               <span className="iconify text-5xl text-primary mdi--search"></span>
             </div>
           </div>
-          <StrapiImage
-            src={thumbnailData.url}
-            alt={thumbnail.name}
-            className="h-full w-full object-cover object-center transition-transform duration-300 ease-out"
-            width={thumbnailData.width}
-            height={thumbnailData.height}
-          />
+          {thumbnailData ? (
+            <StrapiImage
+              src={thumbnailData.url}
+              alt={thumbnail.name}
+              className="h-full w-full object-cover object-center transition-transform duration-300 ease-out"
+              width={thumbnailData.width}
+              height={thumbnailData.height}
+            />
+          ) : (
+            <div className="bg-background-alt h-full w-full duration-300 ease-out"></div>
+          )}
         </div>
 
         {/* Category Pills */}
