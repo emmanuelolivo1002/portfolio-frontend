@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Personal Portfolio
 
-First, run the development server:
+![Cover Image of Portfolio. ](https://adminv2.emmanuelolivo.com/uploads/Screenshot_2024_07_08_at_11_17_56_AM_07975abf93.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This is my personal portfolio built with Next.js, designed to showcase my projects and professional experience as a front end developer. The project uses TypeScript for type safety, Tailwind CSS for styling, and Framer Motion for animations. The backend is powered by Strapi CMS to manage and deliver content seamlessly.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Backend
+You can take a look at the [backend repo here](https://github.com/emmanuelolivo1002/portfolio-backend)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Features
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Projects Section
 
-## Learn More
+-   Displays a curated list of my projects.
+-   Each project has a detailed modal with more information, screenshots, and relevant links.
 
-To learn more about Next.js, take a look at the following resources:
+### Experience Timeline
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+-   An interactive timeline showcasing the different jobs I've held.
+-   Each entry provides details about my role, responsibilities, and achievements.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### About Me Section
 
-## Deploy on Vercel
+-   A brief overview of my background, skills, and interests.
+-   Highlights my journey and growth as a front end developer.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Contact 
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+-   Includes a short message encouraging visitors to reach out.
+-   Provides links to my social media profiles and other relevant platforms.
+
+## Technologies Used
+
+-   **Next.js:** React framework for server-side rendering and static site generation.
+-   **TypeScript:** Superset of JavaScript that adds static types.
+-   **Tailwind CSS:** Utility-first CSS framework for rapid UI development.
+-   **Framer Motion:** Library for creating animations and interactions.
+-   **Strapi CMS:** Headless CMS to manage and deliver content.
