@@ -27,17 +27,25 @@ const AboutSection = ({
   return (
     <section
       id="about"
-      className="flex-center h-screen py-12"
+      className="flex-center flex py-12 lg:h-screen"
       ref={parallaxWrapperRef}
     >
       <motion.div
-        className="flex-center mx-auto flex-col md:container lg:relative lg:items-end"
+        className="grid items-center lg:container lg:grid-cols-[2fr_1fr]"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{
           ease: "easeInOut",
         }}
       >
+        <div className="p-6 text-secondary-foreground shadow-xl lg:z-10 lg:rounded-xl lg:bg-background-alt lg:p-10">
+          <h2 className="mb-4 text-center text-5xl text-primary lg:text-left">
+            {title}
+          </h2>
+          <div className="prose prose-invert lg:text-lg">
+            <BlockRendererClient content={detailedDescription} />
+          </div>
+        </div>
         <MouseParallax
           strength={0.08}
           parallaxContainerRef={parallaxWrapperRef}
@@ -48,17 +56,9 @@ const AboutSection = ({
             alt={image.name}
             height={imageData.height}
             width={imageData.width}
-            className="pointer-events-none h-full select-none rounded-t-xl max-md:object-cover md:h-[60vh] lg:absolute lg:-top-14 lg:left-0 lg:z-0 lg:w-full lg:rounded-b-xl"
+            className="pointer-events-none w-full select-none grayscale lg:rounded-xl"
           />
         </MouseParallax>
-        <div className="bg-background-alt rounded-xl p-6 text-secondary-foreground shadow-xl lg:z-10 lg:rounded-xl lg:p-10">
-          <h2 className="mb-4 text-center text-5xl text-primary lg:text-left">
-            {title}
-          </h2>
-          <div className="prose prose-invert md:text-lg">
-            <BlockRendererClient content={detailedDescription} />
-          </div>
-        </div>
       </motion.div>
     </section>
   );
